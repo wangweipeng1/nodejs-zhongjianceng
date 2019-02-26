@@ -7,6 +7,8 @@ const favicon = require('express-favicon')
 const createError = require('http-errors')
 const app = express()
 
+const middlewares = require('./middlewares')
+
 // 处理静态资源
 app.use('/', express.static(path.join(__dirname, './public')))
 // 配置模板引擎
@@ -21,13 +23,17 @@ app.use(express.json())
 app.use(express.urlencoded({ extend: false }))
 
 
+// 配置自定义中间件
+app.use(middlewares.global)
 //定义的业务路由
 app.get('/', (req, res, next) => {
     //自己创建一个服务器运行异常
     // throw new Error('服务器异常')
-    res.send('server ok')
+    // res.send('server ok')
+    res.render('home')
   })
 
+// 错误挂载中间件
 app.use((req, res, next) => {
     // const error = new Error('Not Found')
     // error.status = 404
@@ -35,7 +41,7 @@ app.use((req, res, next) => {
     // console.log(error)
     next(createError('Not Found', 404))
 })
-
+// 错误统一处理中间件
 app.use((err, req, res, next) => {
     const env = req.app.get('env')
     console.log(env)
@@ -50,6 +56,7 @@ app.use((err, req, res, next) => {
     }
 })
 
+// 监听端口
 app.listen(3000, () => {
     console.log('端口3000.....')
 })
