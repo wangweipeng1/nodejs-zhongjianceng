@@ -8,6 +8,7 @@ const createError = require('http-errors')
 const app = express()
 
 const middlewares = require('./middlewares')
+const routers = require('./routers')
 
 // 处理静态资源
 app.use('/', express.static(path.join(__dirname, './public')))
@@ -25,13 +26,9 @@ app.use(express.urlencoded({ extend: false }))
 
 // 配置自定义中间件
 app.use(middlewares.global)
-//定义的业务路由
-app.get('/', (req, res, next) => {
-    //自己创建一个服务器运行异常
-    // throw new Error('服务器异常')
-    // res.send('server ok')
-    res.render('home')
-  })
+
+// 注册路由
+app.use(routers)
 
 // 错误挂载中间件
 app.use((req, res, next) => {
