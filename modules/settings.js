@@ -7,3 +7,7 @@ exports.getSliders = () => {
         .then(res => res.data)
         .catch(err => Promise.reject(err))
 }
+
+/* 
+return 出去了一个promiss对象
+*/
