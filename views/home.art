@@ -94,54 +94,16 @@
       </div>
       <div class="bd">
         <ul class="clearfix yui3-g Favourate picLB" id="picLBxxl">
+        {{ each likes }}
           <li class="yui3-u-1-6">
             <dl class="picDl huozhe">
               <dd>
-                <a href="item.html" class="pic"><img src="/uploads/like_01.png"></a>
-                <div class="like-text"><p>阳光美包新款单肩包女包时尚子母包四件套女</p><h3>¥116.00</h3></div>
+                <a href="/item/{{ $value.id }}" class="pic"><img src="{{ $value.thumbnail }}"></a>
+                <div class="like-text"><p>{{ $value.name }}</p><h3>.¥{{ $value.price }}</h3></div>
               </dd>
             </dl>
           </li>
-          <li class="yui3-u-1-6">
-            <dl class="picDl jilu">
-              <dd>
-                <a href="item.html" class="pic"><img src="/uploads/like_02.png"></a>
-                <div class="like-text"><p>爱仕达 30CM炒锅不粘锅NWG8330E电磁炉炒</p><h3>¥116.00</h3></div>
-              </dd>
-            </dl>
-          </li>
-          <li class="yui3-u-1-6">
-            <dl class="picDl tuhua">
-              <dd>
-                <a href="item.html" class="pic"><img src="/uploads/like_03.png"></a>
-                <div class="like-text"><p>捷波朗 </p><p>（jabra）BOOSI劲步</p><h3>¥236.00</h3></div>
-              </dd>
-            </dl>
-          </li>
-          <li class="yui3-u-1-6">
-            <dl class="picDl huozhe">
-              <dd>
-                <a href="item.html" class="pic"><img src="/uploads/like_04.png"></a>
-                <div class="like-text"><p>阳光美包新款单肩包女包时尚子母包四件套女</p><h3>¥116.00</h3></div>
-              </dd>
-            </dl>
-          </li>
-          <li class="yui3-u-1-6">
-            <dl class="picDl jilu">
-              <dd>
-                <a href="item.html" class="pic"><img src="/uploads/like_05.png"></a>
-                <div class="like-text"><p>捷波朗 </p><p>（jabra）BOOSI劲步</p><h3>¥236.00</h3></div>
-              </dd>
-            </dl>
-          </li>
-          <li class="yui3-u-1-6">
-            <dl class="picDl tuhua">
-              <dd>
-                <a href="item.html" class="pic"><img src="/uploads/like_06.png"></a>
-                <div class="like-text"><p>三星（G5500）</p><p>移动联通双网通</p><h3>¥566.00</h3></div>
-              </dd>
-            </dl>
-          </li>
+          {{ /each }}
         </ul>
       </div>
     </div>
