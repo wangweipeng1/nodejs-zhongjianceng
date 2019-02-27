@@ -9,8 +9,8 @@ exports.site = {
 
 //2. 接口服务器配置信息
 exports.server = {
-    // baseURL:'https://ns-api.uieee.com/v1/',
-    baseURL:'http://localhost:8000/v1/',
+    baseURL:'https://ns-api.uieee.com/v1/',
+    // baseURL:'http://localhost:8000/v1/',
     timeout:3000,
     username:'newshop-frontend',
     password:'d8667837fce5a0270a35f4a8fa14be479fadc774'
