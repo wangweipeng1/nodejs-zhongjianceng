@@ -15,3 +15,9 @@ exports.index = (req, res, next) => {
       res.render('home')
     }).catch(err => next(err))
 }
+// 猜你喜欢数据获取-换一换
+exports.like = (req, res, next) => {
+    productModel.getLikeProducts().then(data => {
+        res.json({code: 200, data: data})
+    }).catch(err => {res.json({code: 500, msg: err.message})})
+}

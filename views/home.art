@@ -3,7 +3,30 @@
     <link rel="stylesheet" href="/assets/css/page-home.css"> 
 {{ /block }}
 {{ block 'scripts' }}
-    <script src="/assets/js/sui.carousel.js"></script>
+  <script src="/assets/js/sui.carousel.js"></script>
+  <script>
+    $('#xxlChg').on('click' () => {
+      $.get('/like', (res) => {
+        let html = '',
+        res.data.forEach((item, i) => {
+          html+= `
+                <li class="yui3-u-1-6">
+                  <dl class="picDl huozhe">
+                    <dd>
+                      <a href="/item/${item.id}" class="pic"><img src="${item.thumbnail}"></a>
+                      <div class="like-text"><p>${item.name}</p><h3>.¥${item.price}</h3></div>
+                    </dd>
+                  </dl>
+                </li>
+                `
+        })
+        $('picLBxxl').fadeOut(() => {
+          $(this.html(html).dadeIn())
+        })
+      })
+    })
+      
+  </script>
 {{ /block }}
 {{ block 'content' }}
 <!--列表-->

@@ -6,6 +6,8 @@ const homeController = require('./controllers/home')
 
 //渲染首页
 router.get('/', homeController.index)
+// 猜你喜欢
+router.get('/like', homeController.like)
 
 
 
