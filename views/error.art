@@ -26,6 +26,5 @@
 </head>
 <body>
     <div class="box {{status===404?'error404':'error500'}}"></div>
-    
 </body>
 </html>
